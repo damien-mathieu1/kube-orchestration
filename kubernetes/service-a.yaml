@@ -18,6 +18,9 @@ spec:
           image: damienmathieu/service-a:latest
           ports:
             - containerPort: 8080
+          env:
+            - name: SERVICE_B_URL
+              value: http://service-b.dma.svc.cluster.local:80
           livenessProbe:
             httpGet:
               path: /health

@@ -14,9 +14,9 @@ def health():
         if response.status_code == 200:
             return jsonify(message="Hello from service-a", service_b_response=response.json())
         else:
-            return jsonify(message="Hello from service-a", service_b_status="unavailable"), 200
+            return jsonify(message="Hello from service-a", service_b_status="unavailable"), 500
     except requests.exceptions.RequestException as e:
-        return jsonify(message="Hello from service-a", service_b_error=str(e)), 200
+        return jsonify(message="Hello from service-a", service_b_error=str(e)), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
